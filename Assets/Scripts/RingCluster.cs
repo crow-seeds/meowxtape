@@ -16,12 +16,12 @@ public class RingCluster : MonoBehaviour
         
     }
 
-    public void init(float sp, int amt, bool dG)
+    public void init(float sp, int amt, bool dG, float angVel)
     {
         float ang = 0;
         for(int i = 0; i < amt; i++)
         {
-            Instantiate(Resources.Load<GameObject>("Enemies/Bullet"), new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0)).GetComponent<Bullet>().init(sp, new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)), dG);
+            Instantiate(Resources.Load<GameObject>("Enemies/Bullet"), new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0)).GetComponent<Bullet>().init(sp, new Vector2(Mathf.Cos(ang), Mathf.Sin(ang)), dG, angVel);
             ang += 2 * 3.1415f / amt;
         }
         Destroy(gameObject);

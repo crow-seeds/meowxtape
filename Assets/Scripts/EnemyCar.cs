@@ -37,12 +37,17 @@ public class EnemyCar : MonoBehaviour
     {
         timer += Time.fixedDeltaTime;
 
-        if((timer > timeToStop || detectCar(0.25f) || detectCar(-0.25f) || (transform.position.y > 2.5f && type == "aim")) && !hasStopped && transform.position.y > 0)
+        if((timer > timeToStop || detectCar(0.25f) || detectCar(-0.25f) || (transform.position.y > 2.5f && type == "aim") || (transform.position.y > 2.5f && type == "shotgun")) && !hasStopped /*&& transform.position.y > -2*/)
         {
             speed = Random.Range(-7f, -3f);
             if(type == "aim")
             {
                 StartCoroutine(aim());
+            }
+
+            if(type == "shotgun")
+            {
+                StartCoroutine(aimShotgun());
             }
 
             hasStopped = true;
@@ -91,6 +96,11 @@ public class EnemyCar : MonoBehaviour
                 GetComponent<SpriteRenderer>().color = new Color(1, 0.6f, 0.6f);
                 sprite.sprite = Resources.Load<Sprite>("Sprites/enemycarcop");
                 break;
+            case "shotgun":
+                GetComponent<SpriteRenderer>().color = Color.red;
+                sprite.sprite = Resources.Load<Sprite>("Sprites/enemycarcop");
+                sprite.color = Color.red;
+                break;
             default:
                 sprite.sprite = Resources.Load<Sprite>("Sprites/enemycar" + Random.Range(0,4).ToString());
                 break;
@@ -108,6 +118,19 @@ public class EnemyCar : MonoBehaviour
         StartCoroutine(aim());
     }
 
+    IEnumerator aimShotgun()
+    {
+        yield return new WaitForSeconds(1.5f);
+        //Debug.Log("shooting!!");
+        Vector2 dist = playerPos.position - transform.position;
+        sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/gun"), 0.3f);
+        Instantiate(Resources.Load<GameObject>("Enemies/Bullet"), new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0)).GetComponent<Bullet>().init(4 * bulletSpeedModifier, dist, false);
+        yield return new WaitForSeconds(.1f);
+        Instantiate(Resources.Load<GameObject>("Enemies/Bullet"), new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0)).GetComponent<Bullet>().init(4 * bulletSpeedModifier, rotate(dist,Random.Range(15, 45)), false);
+        Instantiate(Resources.Load<GameObject>("Enemies/Bullet"), new Vector3(transform.position.x, transform.position.y, 0), Quaternion.Euler(0, 0, 0)).GetComponent<Bullet>().init(4 * bulletSpeedModifier, rotate(dist, Random.Range(-45, -15)), false);
+        StartCoroutine(aimShotgun());
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "carkill")
@@ -115,4 +138,13 @@ public class EnemyCar : MonoBehaviour
             bullm.playScream();
         }
     }
+
+    public static Vector2 rotate(Vector2 v, float degrees)
+    {
+        return new Vector2(
+            v.x * Mathf.Cos(Mathf.Deg2Rad * degrees) - v.y * Mathf.Sin(Mathf.Deg2Rad * degrees),
+            v.x * Mathf.Sin(Mathf.Deg2Rad * degrees) + v.y * Mathf.Cos(Mathf.Deg2Rad * degrees)
+        );
+    }
+
 }

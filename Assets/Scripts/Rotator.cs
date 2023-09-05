@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Rotator : MonoBehaviour
 {
-    RectTransform obj;
+    Transform obj;
     float duration;
     float sourceRot;
     float destRot;
@@ -38,7 +38,7 @@ public class Rotator : MonoBehaviour
         
     }
 
-    public void set(RectTransform o, float rotAmount, float dur)
+    public void set(Transform o, float rotAmount, float dur)
     {
         obj = o;
         sourceRot = o.localRotation.eulerAngles.z;

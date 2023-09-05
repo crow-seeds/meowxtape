@@ -9,6 +9,8 @@ TagManager:
   - money
   - soundFx
   - carkill
+  - tank
+  - bulletStopper
   layers:
   - Default
   - TransparentFX
@@ -17,7 +19,7 @@ TagManager:
   - Water
   - UI
   - car
-  - 
+  - volume
   - 
   - 
   - 

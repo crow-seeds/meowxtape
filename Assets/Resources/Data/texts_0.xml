@@ -3,7 +3,7 @@
 <data>
   <text time="1" sender="you" text="yo... how do I drive car"/>
   <text time="3" sender="them" text="Arrow keys or WASD to move"/>
-  <text time="5" sender="them" text="Wait.."/>
+  <text time="5" sender="them" text="And space to... Wait.."/>
   <text time="7" sender="them" text="Are you texting n' driving???"/>
   <text time="9" sender="you" text="yea lol"/>
   <text time="12" sender="them" text="Haha hell yea"/>
@@ -18,7 +18,7 @@
   <text time="34" sender="them" text="Don't mess with Detrout cats"/>
   <text time="36" sender="them" text="They're fishy !!"/>
   <text time="41" sender="you" text="racism ??"/>
-  <text time="46" sender="them" text="Dude"/>
+  <text time="46" sender="them" text="Dude, speaking of that"/>
   <text time="48" sender="them" text="Remember your last mix??"/>
   <text time="52" sender="you" text="dont talk about that !!!"/>
   <text time="54" sender="them" text="Was so bad that you.."/>
@@ -33,7 +33,7 @@
   <text time="78" sender="them" text="to anyone yet?"/>
   <text time="81" sender="you" text="nah, no one yet"/>
   <text time="83" sender="you" text="waiting until i get west"/>
-  <text time="89" sender="them" text="Uhh"/>
-  <text time="91" sender="them" text="I think it got leaked??"/>
-  <text time="93" sender="you" text="no way??? no carp??"/>
+  <text time="86" sender="them" text="Uhh"/>
+  <text time="88" sender="them" text="I think it got leaked??"/>
+  <text time="91" sender="you" text="no way??? no carp??"/>
 </data>
