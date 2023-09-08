@@ -31,8 +31,8 @@ public class Tank : MonoBehaviour
     {
         Vector3 dir = player.position - transform.position;
         float currentAngle = Mathf.Rad2Deg * Mathf.Atan2(dir.y, dir.x) + 90;
-        Debug.Log(player.position);
-        Debug.Log(dir);
+        //Debug.Log(player.position);
+        //Debug.Log(dir);
         turret.rotation = Quaternion.Euler(0, 0, currentAngle);
     }
 

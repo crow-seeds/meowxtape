@@ -15,6 +15,8 @@ public class BulletManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI moneyText;
     [SerializeField] AudioSource sfx;
     [SerializeField] RoadBackground roadBackground;
+    [SerializeField] RectTransform catFaceProgress;
+
     int level = 0;
     bool hardMode = false;
     bool endlessMode = false;
@@ -294,6 +296,7 @@ public class BulletManager : MonoBehaviour
             timer += Time.deltaTime;
 
             progressBar.fillAmount = timer / totalTime;
+            catFaceProgress.localPosition = new Vector3(747, -375 + (int)((timer / totalTime) * 775f), 0);
             cityBackground.localPosition = new Vector3(316f - progressBar.fillAmount * 614f, cityBackground.localPosition.y, cityBackground.localPosition.z);
 
 
@@ -413,7 +416,7 @@ public class BulletManager : MonoBehaviour
                     timeHeld = 0;
                 }
 
-                if ((Input.GetKeyDown(KeyCode.Space)) || timeHeld > 1 || Input.GetKey(KeyCode.Return))
+                if ((Input.GetKeyDown(KeyCode.Space)) || timeHeld > 1)
                 {
                     
                     if (!onShop || choiceNum == 3)
@@ -594,12 +597,12 @@ public class BulletManager : MonoBehaviour
         {
             if(PlayerPrefs.GetInt("seen_intro", 0) == 0)
             {
-                dialogueText.text = dialogue[0].Substring(1) + "\n\n\n\n[Space] for next dialogue";
+                dialogueText.text = dialogue[0].Substring(1) + "\n\n\n[Space] for next dialogue";
                 PlayerPrefs.SetInt("seen_intro", 1);
             }
             else
             {
-                dialogueText.text = dialogue[0].Substring(1) + "\n\n\n\n[Enter] to skip all dialogue";
+                dialogueText.text = dialogue[0].Substring(1) + "\n\n\nHold [Space] to skip all dialogue";
             }
             
         }
@@ -879,13 +882,13 @@ public class BulletManager : MonoBehaviour
         {
             if (carType == "aim" || carType == "shotgun")
             {
-                sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/cop"), 0.1f);
+                sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/cop"), 0.4f);
             }
             else
             {
                 if(Random.Range(0,1f) < 0.5f)
                 {
-                    sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/honk"), 0.1f);
+                    sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/honk"), 0.4f);
                 }
                 
             }
@@ -915,13 +918,13 @@ public class BulletManager : MonoBehaviour
         {
             if(carType == "aim" || carType == "shotgun")
             {
-                sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/cop"), 0.1f);
+                sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/cop"), 0.4f);
             }
             else
             {
                 if (Random.Range(0, 1f) < 0.5f)
                 {
-                    sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/honk"), 0.1f);
+                    sfx.PlayOneShot(Resources.Load<AudioClip>("Sounds/honk"), 0.4f);
                 }
             }
             
@@ -1239,9 +1242,22 @@ public class BulletManager : MonoBehaviour
                 totalTime = musicRoad.clip.length - 9f;
                 break;
         }
-        chat.loadSubtitles(i);
+
+        if (endlessMode)
+        {
+
+        }else if(!hardMode)
+        {
+            chat.loadSubtitles("texts_" + level.ToString());
+        }
+        else
+        {
+            chat.loadSubtitles("texts_" + level.ToString() + "_expert");
+        }
+        
         timer = 0;
         progressBar.fillAmount = 0;
+        catFaceProgress.localPosition = new Vector3(747, -375, 0);
         drivingMode = true;
         StartCoroutine(songCredit(level));
     }
@@ -1438,6 +1454,7 @@ public class BulletManager : MonoBehaviour
         StartCoroutine(songCredit(lastEndlessModeSong));
         
         progressBar.fillAmount = 0;
+        catFaceProgress.localPosition = new Vector3(747, -375, 0);
         drivingMode = true;
     }
 
@@ -1628,6 +1645,7 @@ public class BulletManager : MonoBehaviour
             setHealth(health);
             chat.clearMessages();
             progressBar.fillAmount = 0;
+            catFaceProgress.localPosition = new Vector3(747, -375, 0);
             StartCoroutine(leaveDialogueCo());
             yield return new WaitForSeconds(1f);
             Instantiate(Resources.Load<GameObject>("Prefabs/Mover")).GetComponent<Mover>().set2(cam.transform, new Vector3(0, 0, -10f), 2);
@@ -1674,6 +1692,7 @@ public class BulletManager : MonoBehaviour
         setHealth(health);
         chat.clearMessages();
         progressBar.fillAmount = 0;
+        catFaceProgress.localPosition = new Vector3(747, -375, 0);
         player.toggleHitbox(true);
         if (!endlessMode)
         {

@@ -81,11 +81,11 @@ public class TextMessages : MonoBehaviour
         }
     }
 
-    public void loadSubtitles(int level)
+    public void loadSubtitles(string fileName)
     {
         textsList.Clear();
         currentIndex = 0;
-        subtitleData = Resources.Load<TextAsset>("Data/texts_" + level.ToString());
+        subtitleData = Resources.Load<TextAsset>("Data/" + fileName);
 
         string data = subtitleData.text;
         XmlDocument xmlDoc = new XmlDocument();
