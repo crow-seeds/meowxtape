@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && canDash && canMove)
+        if ((Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame) && canDash && canMove)
         {
             Debug.Log("dashing!");
             speed *= 3;
@@ -85,24 +86,29 @@ public class Movement : MonoBehaviour
         mov = Vector2.zero;
         if (canMove)
         {
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current.dpad.down.isPressed)
             {
                 mov += Vector2.down;
             }
 
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Gamepad.current.dpad.up.isPressed)
             {
                 mov += Vector2.up;
             }
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Gamepad.current.dpad.left.isPressed)
             {
                 mov += Vector2.left;
             }
 
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Gamepad.current.dpad.right.isPressed)
             {
                 mov += Vector2.right;
+            }
+
+            if(Gamepad.current.leftStick.ReadValue().magnitude > 0.1f)
+            {
+                mov = Gamepad.current.leftStick.ReadValue();
             }
         }
 

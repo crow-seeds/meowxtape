@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class BulletManager : MonoBehaviour
 {
@@ -243,7 +244,7 @@ public class BulletManager : MonoBehaviour
     {
         if (onGameOverScreen)
         {
-            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current.leftStick.down.ReadValue() > 0.8f || Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.ReadValue() > 0.8f)
             {
                 goingToRetry = !goingToRetry;
                 if (goingToRetry)
@@ -262,7 +263,7 @@ public class BulletManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
             {
                 if (goingToRetry)
                 {
@@ -317,7 +318,7 @@ public class BulletManager : MonoBehaviour
 
             if (onShop)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Gamepad.current.dpad.left.wasPressedThisFrame || Gamepad.current.leftStick.left.ReadValue() > 0.8f || Gamepad.current.dpad.right.wasPressedThisFrame || Gamepad.current.leftStick.right.ReadValue() > 0.8f)
                 {
                     choiceTexts[choiceNum].text = choiceTexts[choiceNum].text.Substring(1);
 
@@ -362,7 +363,7 @@ public class BulletManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current.leftStick.down.ReadValue() > 0.8f || Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.ReadValue() > 0.8f)
                 {
                     choiceTexts[choiceNum].text = choiceTexts[choiceNum].text.Substring(1);
 
@@ -407,7 +408,7 @@ public class BulletManager : MonoBehaviour
             {
                 spaceBetweenSpaces += Time.deltaTime;
 
-                if (Input.GetKey(KeyCode.Space))
+                if (Input.GetKey(KeyCode.Space) || Gamepad.current.buttonSouth.isPressed || Gamepad.current.buttonEast.isPressed)
                 {
                     timeHeld += Time.deltaTime;
                 }
@@ -416,7 +417,7 @@ public class BulletManager : MonoBehaviour
                     timeHeld = 0;
                 }
 
-                if ((Input.GetKeyDown(KeyCode.Space)) || timeHeld > 1)
+                if ((Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame) || timeHeld > 1)
                 {
                     
                     if (!onShop || choiceNum == 3)
