@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<data>
+  <text time="1" sender="you" text="i just realized something"/>
+  <text time="4" sender="them" text="What"/>
+  <text time="8" sender="you" text="the car's brakes"/>
+  <text time="10" sender="you" text="don't work"/>
+  <text time="13" sender="you" text="like i can't stop"/>
+  <text time="15" sender="you" text="the car"/>
+  <text time="20" sender="them" text="Oh my god"/>
+  <text time="23" sender="them" text="Have you been just"/>
+  <text time="26" sender="them" text="running traffic lights"/>
+  <text time="29" sender="them" text="and stop signs"/>
+  <text time="33" sender="you" text="that might be why"/>
+  <text time="36" sender="you" text="the cops are after me"/>
+  <text time="42" sender="them" text="That would explain it"/>
+  <text time="48" sender="you" text="did someone cut my brakes"/>
+  <text time="52" sender="them" text="How have you not"/>
+  <text time="54" sender="them" text="run out of gas"/>
+  <text time="58" sender="you" text="idk"/>
+  <text time="60" sender="you" text="maybe it runs on"/>
+  <text time="62" sender="you" text="christmas magic"/>
+  <text time="70" sender="them" text="Haven't you been"/>
+  <text time="73" sender="them" text="stopping at cities?"/>
+  <text time="76" sender="them" text="How do you do that"/>
+  <text time="80" sender="you" text="ok i lied"/>
+  <text time="83" sender="you" text="the brakes do work"/>
+  <text time="88" sender="them" text="So you don't run"/>
+  <text time="93" sender="them" text="through traffic lights?"/>
+  <text time="98" sender="you" text="nah i still do lol"/>
+  <text time="103" sender="them" text="That's so cool dude"/>
+  <text time="108" sender="you" text="it's only illegal"/>
+  <text time="113" sender="you" text="if they catch you"/>
+
+</data>

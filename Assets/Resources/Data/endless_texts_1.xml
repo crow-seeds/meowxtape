@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<data>
+  <text time="1" sender="them" text="Dude can you"/>
+  <text time="4" sender="them" text="deliver me a pizza?"/>
+  <text time="9" sender="you" text="yea sure"/>
+  <text time="12" sender="you" text="what do you want"/>
+  <text time="15" sender="you" text="on it?"/>
+  <text time="20" sender="them" text="Can I get uhh"/>
+  <text time="23" sender="them" text="anchovies?"/>
+  <text time="27" sender="you" text="ooh good choice"/>
+  <text time="30" sender="them" text="And some meowshrooms"/>
+  <text time="34" sender="you" text="ok i refuse to deliver"/>
+  <text time="37" sender="you" text="meowshrooms are awful"/>
+  <text time="40" sender="you" text="what is wrong with you"/>
+  <text time="43" sender="you" text="on a pizza????"/>
+	<text time="48" sender="them" text="Dude it's my pizza"/>
+	<text time="52" sender="you" text="can i at least"/>
+	<text time="56" sender="you" text="know why you like them"/>
+	<text time="60" sender="you" text="you are a specimen"/>
+	<text time="63" sender="you" text="that needs to be studied"/>
+	<text time="66" sender="you" text="in a lab"/>
+	<text time="72" sender="them" text="Can I know why you"/>
+	<text time="76" sender="them" text="don't like them?"/>
+	<text time="80" sender="them" text="Like get off my tail"/>
+	<text time="83" sender="you" text="they are icky and slimy"/>
+	<text time="86" sender="you" text="horrible texture"/>
+	<text time="89" sender="you" text="tastes like garbage"/>
+	<text time="92" sender="you" text="does not go well"/>
+	<text time="96" sender="you" text="with anything else on pizza"/>
+	<text time="99" sender="them" text="Your taste buds"/>
+	<text time="102" sender="them" text="are too weak"/>
+	<text time="105" sender="them" text="and unsophisticated"/>
+	<text time="108" sender="you" text="i'll kill you"/>
+	<text time="112" sender="them" text="Can you just deliver it?"/>
+	<text time="115" sender="you" text="ok fine"/>
+	<text time="120" sender="them" text="Wahoo"/>
+</data>

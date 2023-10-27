@@ -71,6 +71,10 @@ public class BulletManager : MonoBehaviour
 
     achivementHandler aHandler;
 
+    List<int> playlistSong;
+    List<int> playlistTexts;
+    [SerializeField] int amountOfEndlessTexts;
+
     void Start()
     {
         //StartCoroutine(clusterLoop());
@@ -102,6 +106,22 @@ public class BulletManager : MonoBehaviour
             progressBackground.color = UIColor;
             UI_background.color = UIColor;
             cat_background.color = UIColor;
+            playlistSong = new List<int>();
+            playlistTexts = new List<int>();
+
+
+            for(int i = 0; i < endlessModeSongs.Count; i++)
+            {
+                playlistSong.Add(i);
+            }
+            Shuffle(playlistSong);
+
+            for (int i = 0; i < amountOfEndlessTexts; i++)
+            {
+                playlistTexts.Add(i);
+            }
+
+            Shuffle(playlistTexts);
         }
 
         sfx.volume = PlayerPrefs.GetFloat("volume_sfx", 0.5f);
@@ -244,7 +264,7 @@ public class BulletManager : MonoBehaviour
     {
         if (onGameOverScreen)
         {
-            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current.leftStick.down.ReadValue() > 0.8f || Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.ReadValue() > 0.8f)
+            if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow) || Gamepad.current != null && Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.down.ReadValue() > 0.8f || Gamepad.current != null && Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.up.ReadValue() > 0.8f)
             {
                 goingToRetry = !goingToRetry;
                 if (goingToRetry)
@@ -263,7 +283,7 @@ public class BulletManager : MonoBehaviour
                 }
             }
 
-            if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame)
             {
                 if (goingToRetry)
                 {
@@ -318,7 +338,7 @@ public class BulletManager : MonoBehaviour
 
             if (onShop)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Gamepad.current.dpad.left.wasPressedThisFrame || Gamepad.current.leftStick.left.ReadValue() > 0.8f || Gamepad.current.dpad.right.wasPressedThisFrame || Gamepad.current.leftStick.right.ReadValue() > 0.8f)
+                if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Gamepad.current != null && Gamepad.current.dpad.left.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.left.ReadValue() > 0.8f || Gamepad.current != null && Gamepad.current.dpad.right.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.right.ReadValue() > 0.8f)
                 {
                     choiceTexts[choiceNum].text = choiceTexts[choiceNum].text.Substring(1);
 
@@ -363,7 +383,7 @@ public class BulletManager : MonoBehaviour
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current.leftStick.down.ReadValue() > 0.8f || Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.ReadValue() > 0.8f)
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Gamepad.current != null && Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.down.ReadValue() > 0.8f || Gamepad.current != null && Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.up.ReadValue() > 0.8f)
                 {
                     choiceTexts[choiceNum].text = choiceTexts[choiceNum].text.Substring(1);
 
@@ -408,7 +428,7 @@ public class BulletManager : MonoBehaviour
             {
                 spaceBetweenSpaces += Time.deltaTime;
 
-                if (Input.GetKey(KeyCode.Space) || Gamepad.current.buttonSouth.isPressed || Gamepad.current.buttonEast.isPressed)
+                if (Input.GetKey(KeyCode.Space) || Gamepad.current != null && Gamepad.current.buttonSouth.isPressed || Gamepad.current != null && Gamepad.current.buttonEast.isPressed)
                 {
                     timeHeld += Time.deltaTime;
                 }
@@ -417,7 +437,7 @@ public class BulletManager : MonoBehaviour
                     timeHeld = 0;
                 }
 
-                if ((Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame) || timeHeld > 1)
+                if ((Input.GetKeyDown(KeyCode.Space) || Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame) || timeHeld > 1)
                 {
                     
                     if (!onShop || choiceNum == 3)
@@ -1162,8 +1182,8 @@ public class BulletManager : MonoBehaviour
                 if (!hardMode)
                 {
                     roadBackground.speed = 8 * bulletSpeedModifier;
-                    rateCar = 4f;
-                    ratePothole = 6f;
+                    rateCar = 3.3f;
+                    ratePothole = 5.7f;
                     rateMoney = 5f;
                     aimCarChance = 0.4f;
                     shotgunChance = 0;
@@ -1244,10 +1264,8 @@ public class BulletManager : MonoBehaviour
                 break;
         }
 
-        if (endlessMode)
-        {
-
-        }else if(!hardMode)
+        
+        if(!hardMode)
         {
             chat.loadSubtitles("texts_" + level.ToString());
         }
@@ -1267,13 +1285,17 @@ public class BulletManager : MonoBehaviour
     {
         rateCar = 999f;
         ratePothole = 999f;
-        rateMoney = 7f;
+        rateMoney = 5f;
         aimCarChance = 0f;
         rateCluster = 0f;
         shotgunChance = 0f;
         spiralClusterChance = 0f;
         roadBackground.speed = (9 + (int)(level/3)) * bulletSpeedModifier;
         hardMode = false;
+
+        chat.loadSubtitles("endless_texts_" + playlistTexts[0].ToString());
+        playlistTexts.Add(playlistTexts[0]);
+        playlistTexts.RemoveAt(0);
 
         switch (level)
         {
@@ -1333,7 +1355,7 @@ public class BulletManager : MonoBehaviour
             case 8:
                 rateCar = 999f;
                 ratePothole = 3.2f;
-                rateCluster = 0.8f;
+                rateCluster = 0.9f;
                 spiralClusterChance = 0.75f;
                 StartCoroutine(clusterLoop());
                 break;
@@ -1539,6 +1561,16 @@ public class BulletManager : MonoBehaviour
             
             yield return new WaitForSeconds(2f);
 
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("damage"))
+            {
+                Destroy(g);
+            }
+
+            foreach (GameObject g in GameObject.FindGameObjectsWithTag("tank"))
+            {
+                Destroy(g);
+            }
+
             if (!endlessMode)
             {
                 backgroundImage.sprite = Resources.Load<Sprite>("Sprites/background" + level.ToString());
@@ -1598,15 +1630,7 @@ public class BulletManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
             Instantiate(Resources.Load<GameObject>("Prefabs/Color Fader")).GetComponent<ColorFader>().set(blackOverlay, new Color(0,0,0,0), 3);
             chat.clearMessages();
-            foreach (GameObject g in GameObject.FindGameObjectsWithTag("damage"))
-            {
-                Destroy(g);
-            }
-
-            foreach (GameObject g in GameObject.FindGameObjectsWithTag("tank"))
-            {
-                Destroy(g);
-            }
+            
             beginDialoguePhase();
             //Instantiate(Resources.Load<GameObject>("Prefabs/Mover")).GetComponent<Mover>().set2(cam.transform, new Vector3(0, 10, -10f), 2);
             StartCoroutine(showDialogueCo());
@@ -1621,10 +1645,12 @@ public class BulletManager : MonoBehaviour
             }
             else
             {
-                lastEndlessModeSong = Random.Range(0, endlessModeSongs.Count);
+                lastEndlessModeSong = playlistSong[0];
+                playlistSong.Add(playlistSong[0]);
+                playlistSong.RemoveAt(0);
                 musicRoad.clip = endlessModeSongs[lastEndlessModeSong];
 
-                PlayerPrefs.SetInt("song_" + lastEndlessModeSong.ToString(), 1);
+                PlayerPrefs.SetInt("song_" + (lastEndlessModeSong+1).ToString(), 1);
 
                 if (lastEndlessModeSong == 5 && Random.Range(0f, 1f) < .5f)
                 {
@@ -1888,5 +1914,18 @@ public class BulletManager : MonoBehaviour
         Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/Color Fader")).GetComponent<ColorFader>().set(songCreditText, new Color(1, 1, 1, 1), 0.5f);
         yield return new WaitForSeconds(3);
         Instantiate<GameObject>(Resources.Load<GameObject>("Prefabs/Color Fader")).GetComponent<ColorFader>().set(songCreditText, new Color(1, 1, 1, 0), 0.5f);
+    }
+
+    void Shuffle<T>(List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = UnityEngine.Random.Range(0, n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 }

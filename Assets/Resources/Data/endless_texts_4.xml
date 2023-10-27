@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<data>
+  <text time="1" sender="you" text="you going to chess club"/>
+  <text time="5" sender="them" text="Sorry man, can't"/>
+  <text time="7" sender="you" text="pussy"/>
+  <text time="12" sender="them" text="Dude I can't go"/>
+  <text time="14" sender="them" text="I have a meeting"/>
+  <text time="20" sender="you" text="ok fine"/>
+  <text time="22" sender="you" text="guess i have to go"/>
+  <text time="24" sender="you" text="by myself"/>
+  <text time="30" sender="them" text="Yea good luck man"/>
+  <text time="33" sender="you" text="learned a really good opening"/>
+  <text time="36" sender="them" text="That's cool"/>
+  <text time="40" sender="you" text="pawn to f3"/>
+  <text time="42" sender="you" text="my ultimate move"/>
+  <text time="44" sender="you" text="thats something"/>
+  <text time="46" sender="you" text="that can't be beat"/>
+  <text time="51" sender="them" text="Don't play that man"/>
+  <text time="53" sender="them" text="It'll expose your king"/>
+  <text time="59" sender="you" text="watch and learn"/>
+  <text time="61" sender="you" text="about to start a match"/>
+  <text time="63" sender="you" text="you'll see"/>
+  <text time="68" sender="them" text="Looking forward to it"/>
+  <text time="73" sender="you" text="just played f3"/>
+  <text time="75" sender="you" text="guy is cowering in fear"/>
+  <text time="80" sender="them" text="Cool"/>
+  <text time="83" sender="you" text="they just played"/>
+  <text time="85" sender="you" text="this is ez pz"/>
+  <text time="90" sender="you" text="wait"/>
+  <text time="94" sender="you" text="ok i have some news"/>
+  <text time="97" sender="them" text="Did you get checkmated"/>
+  <text time="100" sender="you" text="yea"/>
+  <text time="104" sender="you" text="im quitting chess club"/>
+  <text time="120" sender="you" text="game sucks anyways"/>
+</data>

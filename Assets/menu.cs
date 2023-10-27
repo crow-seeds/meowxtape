@@ -85,7 +85,8 @@ public class menu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame)
+
+        if (Input.GetKeyDown(KeyCode.Space) || Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame)
         {
             if (pageOfMenu == 0)
             {
@@ -207,17 +208,17 @@ public class menu : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current.leftStick.down.ReadValue() > 0.8f)
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || Gamepad.current != null && Gamepad.current.dpad.down.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.down.ReadValue() > 0.8f)
         {
             changeSelection(true);
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current.leftStick.up.ReadValue() > 0.8f)
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || Gamepad.current != null && Gamepad.current.dpad.up.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.up.ReadValue() > 0.8f)
         {
             changeSelection(false);
-        }else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Gamepad.current.dpad.left.wasPressedThisFrame || Gamepad.current.leftStick.left.ReadValue() > 0.8f)
+        }else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Gamepad.current != null && Gamepad.current.dpad.left.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.left.ReadValue() > 0.8f)
         {
             changeSelection2(false);
-        }else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Gamepad.current.dpad.right.wasPressedThisFrame || Gamepad.current.leftStick.right.ReadValue() > 0.8f)
+        }else if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Gamepad.current != null && Gamepad.current.dpad.right.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.leftStick.right.ReadValue() > 0.8f)
         {
             changeSelection2(true);
         }

@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.Space) || Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current.buttonEast.wasPressedThisFrame) && canDash && canMove)
+        if ((Input.GetKeyDown(KeyCode.Space) || Gamepad.current != null && Gamepad.current.buttonSouth.wasPressedThisFrame || Gamepad.current != null && Gamepad.current.buttonEast.wasPressedThisFrame) && canDash && canMove)
         {
             Debug.Log("dashing!");
             speed *= 3;
@@ -86,27 +86,27 @@ public class Movement : MonoBehaviour
         mov = Vector2.zero;
         if (canMove)
         {
-            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current.dpad.down.isPressed)
+            if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Gamepad.current != null && Gamepad.current.dpad.down.isPressed)
             {
                 mov += Vector2.down;
             }
 
-            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Gamepad.current.dpad.up.isPressed)
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Gamepad.current != null && Gamepad.current.dpad.up.isPressed)
             {
                 mov += Vector2.up;
             }
 
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Gamepad.current.dpad.left.isPressed)
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Gamepad.current != null && Gamepad.current.dpad.left.isPressed)
             {
                 mov += Vector2.left;
             }
 
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Gamepad.current.dpad.right.isPressed)
+            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Gamepad.current != null && Gamepad.current.dpad.right.isPressed)
             {
                 mov += Vector2.right;
             }
 
-            if(Gamepad.current.leftStick.ReadValue().magnitude > 0.1f)
+            if(Gamepad.current != null && Gamepad.current.leftStick.ReadValue().magnitude > 0.1f)
             {
                 mov = Gamepad.current.leftStick.ReadValue();
             }

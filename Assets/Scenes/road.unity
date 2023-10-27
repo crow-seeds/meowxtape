@@ -2995,6 +2995,7 @@ MonoBehaviour:
   UI_background: {fileID: 604659422}
   cat_background: {fileID: 388157037}
   progressBackground: {fileID: 978716717}
+  amountOfEndlessTexts: 5
   upgradeToolTip: {fileID: 1686665941}
   retryText: {fileID: 576453123}
   quitText: {fileID: 180189924}

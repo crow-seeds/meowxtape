@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<data>
+  <text time="1" sender="you" text="meow"/>
+  <text time="5" sender="them" text="Meow meow"/>
+  <text time="9" sender="them" text="Meow"/>
+  <text time="13" sender="you" text="meow meow meow"/>
+  <text time="17" sender="them" text="Meow"/>
+  <text time="21" sender="you" text="meow"/>
+  <text time="25" sender="them" text="Meow?"/>
+  <text time="29" sender="you" text="meow meow meow"/>
+  <text time="33" sender="them" text="Meow."/>
+  <text time="37" sender="you" text="meow."/>
+  <text time="41" sender="them" text="Meow?!?"/>
+  <text time="45" sender="them" text="Meow meow meow"/>
+  <text time="49" sender="you" text="meow meow meow"/>
+  <text time="53" sender="you" text="meow?"/>
+  <text time="57" sender="them" text="Meow!"/>
+  <text time="61" sender="you" text="meow meow"/>
+  <text time="65" sender="them" text="Meow"/>
+  <text time="69" sender="them" text="Meow"/>
+  <text time="73" sender="you" text="meow..."/>
+  <text time="77" sender="you" text="meow"/>
+  <text time="81" sender="them" text="Meow meow meow"/>
+  <text time="85" sender="you" text="meow meow :("/>
+  <text time="89" sender="them" text="...Meow"/>
+  <text time="93" sender="them" text="Meow meow meow"/>
+  <text time="97" sender="them" text="meow!!!!"/>
+  <text time="101" sender="them" text="meow meow meow"/>
+  <text time="106" sender="them" text="meow????"/>
+  <text time="111" sender="them" text="Meow"/>
+  <text time="116" sender="them" text="meow meow -_-"/>
+  <text time="121" sender="them" text="Meow"/>
+
+</data>

@@ -2648,12 +2648,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 497eab93d9240104591da37016b5a647, type: 3}
   - {fileID: 8300000, guid: 624e8d1ad3b009744a1ad3af983f08a3, type: 3}
   - {fileID: 8300000, guid: 2be68a691c7653549877a8e26f2b29fa, type: 3}
+  - {fileID: 8300000, guid: 582beace36d8cf349a1bbec2a19b5761, type: 3}
+  - {fileID: 8300000, guid: 9d334a3ff7681c94ea566914daa83fb6, type: 3}
+  - {fileID: 8300000, guid: cd1dbb9811988d04e9193069a63566c1, type: 3}
+  - {fileID: 8300000, guid: 764ce32608683e44bbf294715b935eaf, type: 3}
+  - {fileID: 8300000, guid: 835c231d4939a3e468e009dec6db6577, type: 3}
   trackNames:
   - Menu Theme
   - Mew York
   - Detrout
   - El Pawso
   - Los Angelhiss
+  - Hiss
+  - Cable's Out
+  - Hate Nermal
+  - Require that Lasagna
+  - There Goes Garfield
   menuPage1: {fileID: 31795427}
   settingsPage1: {fileID: 679036762}
   tracksPage1: {fileID: 75761092}
